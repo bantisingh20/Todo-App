@@ -1,0 +1,25 @@
+<div class="container">
+
+    <div class="col-md-8 mt-4">
+        <div class="col-md-8 d-flex">
+            <label class="col-md-2">Add Todo : </label>
+            <input type="text" [(ngModel)]="newTodo" placeholder="Enter new todo" class="form-control col-md-3" />
+            <button (click)="addTodo()" class="btn btn-success col-md-2">Add</button>
+        </div>
+        
+       
+    </div>
+    <br /><br />
+ 
+    <ul *ngFor="let todo of Todolist; let i=index" >
+        <div class="card {{todo.active == false ?'alert alert-secondary' :''}}" style="width: 18rem;"> 
+            <div class="card-body">
+              <h5 class="card-title ">{{todo.title}}</h5> 
+              <button class="btn btn-danger" (click)="deletethistodo(i)">{{todo.status}}</button> 
+               
+            </div>
+          </div>
+    </ul>
+
+</div>
+
