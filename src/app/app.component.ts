@@ -10,5 +10,5 @@ import { TodosComponent } from "./MyComponent/todos/todos.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'Todo App';
 }

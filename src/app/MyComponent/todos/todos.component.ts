@@ -1,7 +1,7 @@
 import { Component ,OnInit ,ViewChild } from '@angular/core';
 import { CommonModule  } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {Todos} from './Todos'
+import { Todos } from './Todos'
 
 
 @Component({
@@ -23,6 +23,7 @@ export class TodosComponent implements OnInit {
 
 ]
 
+ 
   
 // declare value and index of todo
 newTodo: string = ''; 
@@ -67,7 +68,7 @@ ChageStatusoftodo(index: number){
   
   if(this.Todolist[index].active == true){
     this.Todolist[index].active = false;
-    this.Todolist[index].status = 'Open';
+    this.Todolist[index].status = 'Re-Open';
   }
   else {
     this.Todolist[index].active = true;

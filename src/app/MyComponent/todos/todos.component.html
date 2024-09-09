@@ -12,7 +12,7 @@
     </div>
     <br /><br />
  
-    <ul *ngFor="let todo of Todolist; let i=index" >
+    <!-- <ul *ngFor="let todo of Todolist; let i=index" >
         <div class="card {{todo.active == false ?'alert alert-secondary' :''}}" style="width: 18rem;"> 
             <div class="card-body">
               <h5 class="card-title text-center">{{todo.title}}</h5>
@@ -24,7 +24,25 @@
               
             </div>
           </div>
-    </ul>
+    </ul> -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let todo of Todolist; let i = index">
+          <div class="card mt-4 {{todo.active == false ? 'alert alert-secondary' : ''}}" style="width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{todo.title}}</h5>
+              <div class="d-flex flex-row justify-content-between">
+                <button class="btn btn-primary" (click)="ChageStatusoftodo(i)">{{todo.status}}</button>
+                <button class="btn btn-info {{todo.active == false ? 'disabled' : ''}}" (click)="updateTodo(i)">Edit</button>
+                <button class="btn btn-danger" (click)="deletethistodo(i)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
      
       
