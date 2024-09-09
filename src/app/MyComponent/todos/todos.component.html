@@ -15,8 +15,8 @@
         <div class="card {{todo.active == false ?'alert alert-secondary' :''}}" style="width: 18rem;"> 
             <div class="card-body">
               <h5 class="card-title ">{{todo.title}}</h5> 
-              <button class="btn btn-danger" (click)="deletethistodo(i)">{{todo.status}}</button> 
-               
+              <button class="btn btn-primary" (click)="ChageStatusoftodo(i)">{{todo.status}}</button> 
+              <button class="btn btn-danger" (click)="deletethistodo(i)">Delete</button>
             </div>
           </div>
     </ul>

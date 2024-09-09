@@ -16,7 +16,7 @@ export class TodosComponent implements OnInit {
   {
     title:'Dinner'
     ,active : true
-    ,status:'Delete'
+    ,status:'Close'
   }
 
 ]
@@ -36,7 +36,7 @@ newTodo: string = '';
 
 addTodo() {
   if (this.newTodo.trim()) {
-    this.Todolist.push({ title: this.newTodo ,active :true ,status:'Delete' });
+    this.Todolist.push({ title: this.newTodo ,active :true ,status:'Close' });
     this.newTodo = ''; 
 
     localStorage.setItem('Todolist', JSON.stringify(this.Todolist));
@@ -45,21 +45,29 @@ addTodo() {
 }
 
 
-deletethistodo(index: number){
+ChageStatusoftodo(index: number){
   console.log(index);
   //this.Todolist.splice(index, 1); 
 
   if(this.Todolist[index].active == true){
     this.Todolist[index].active = false;
-    this.Todolist[index].status = 'Add Again';
+    this.Todolist[index].status = 'Open';
   }
   else {
     this.Todolist[index].active = true;
-    this.Todolist[index].status = 'Delete';
+    this.Todolist[index].status = 'Close';
   }
   localStorage.setItem('Todolist', JSON.stringify(this.Todolist));
    
   console.log(this.Todolist)
 }
  
+deletethistodo(index: number){
+  console.log(index);
+  this.Todolist.splice(index, 1); 
+
+  localStorage.setItem('Todolist', JSON.stringify(this.Todolist));
+   
+}
+
 }
