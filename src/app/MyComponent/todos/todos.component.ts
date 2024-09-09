@@ -22,7 +22,12 @@ export class TodosComponent implements OnInit {
   }
 
 ]
-   
+
+  
+// declare value and index of todo
+newTodo: string = ''; 
+currentTodoIndex: number | null = null;
+  
 // use to load function after page load
 ngOnInit(): void {
   this.loadTodos();
@@ -35,9 +40,7 @@ loadTodos(): void {
   this.Todolist = storedTodo ? JSON.parse(storedTodo) : [];
 }
 
-// declare value and index of todo
-newTodo: string = ''; 
-currentTodoIndex: number | null = null;
+
 
 
 //Save and update todo list using index value
@@ -45,9 +48,9 @@ addTodo() {
   if (this.newTodo.trim()) {
    
     if(this.currentTodoIndex === null){
-      this.Todolist.push({ title: this.newTodo ,active :true ,status:'Close' });
-      this.newTodo = ''; 
+      this.Todolist.push({ title: this.newTodo ,active :true ,status:'Close' });      
       localStorage.setItem('Todolist', JSON.stringify(this.Todolist));      
+      this.newTodo = ''; 
     }
     else{       
       this.Todolist[this.currentTodoIndex].title = this.newTodo;
@@ -61,7 +64,6 @@ addTodo() {
 
 // change todo status active and deactive
 ChageStatusoftodo(index: number){
-  console.log(index);
   
   if(this.Todolist[index].active == true){
     this.Todolist[index].active = false;
@@ -71,22 +73,20 @@ ChageStatusoftodo(index: number){
     this.Todolist[index].active = true;
     this.Todolist[index].status = 'Close';
   }
-  localStorage.setItem('Todolist', JSON.stringify(this.Todolist));
-   
+  
+  localStorage.setItem('Todolist', JSON.stringify(this.Todolist));   
   console.log(this.Todolist)
 }
  
 // delete the todo
-deletethistodo(index: number){
-  console.log(index);
+deletethistodo(index: number){ 
   this.Todolist.splice(index, 1); 
   localStorage.setItem('Todolist', JSON.stringify(this.Todolist));   
 }
 
 
 // set input tag and index value to update todo
-updateTodo(index: number){
-  console.log(index); 
+updateTodo(index: number){   
   this.newTodo = this.Todolist[index].title; 
   this.currentTodoIndex = index;
 }
