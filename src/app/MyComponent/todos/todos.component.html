@@ -5,8 +5,7 @@
             <label class="col-md-2">Add Todo : </label>
             <input type="text" [(ngModel)]="newTodo" placeholder="Enter new todo" class="form-control col-md-3" />
              
-            <button (click)="addTodo()" class="btn btn-primary col-md-3">{{ currentTodoIndex === null ? 'Add Todo' : 'Update Todo' }}
-              </button>
+            <button (click)="addTodo()" class="btn btn-success col-md-3"> {{ currentTodoIndex === null ? 'Add Todo' : 'Update Todo' }} </button>
         </div>
         
        
