@@ -4,7 +4,9 @@
         <div class="col-md-8 d-flex">
             <label class="col-md-2">Add Todo : </label>
             <input type="text" [(ngModel)]="newTodo" placeholder="Enter new todo" class="form-control col-md-3" />
-            <button (click)="addTodo()" class="btn btn-success col-md-2">Add</button>
+             
+            <button (click)="addTodo()" class="btn btn-primary col-md-3">{{ currentTodoIndex === null ? 'Add Todo' : 'Update Todo' }}
+              </button>
         </div>
         
        
@@ -14,12 +16,18 @@
     <ul *ngFor="let todo of Todolist; let i=index" >
         <div class="card {{todo.active == false ?'alert alert-secondary' :''}}" style="width: 18rem;"> 
             <div class="card-body">
-              <h5 class="card-title ">{{todo.title}}</h5> 
-              <button class="btn btn-primary" (click)="ChageStatusoftodo(i)">{{todo.status}}</button> 
-              <button class="btn btn-danger" (click)="deletethistodo(i)">Delete</button>
+              <h5 class="card-title text-center">{{todo.title}}</h5>
+              <div class="d-flex flex-row justify-content-between">
+                <button class="btn btn-primary" (click)="ChageStatusoftodo(i)">{{todo.status}}</button> 
+                <button class="btn btn-info {{todo.active == false ?'disabled' :''}}" (click)="updateTodo(i)">Edit</button>
+                <button class="btn btn-danger" (click)="deletethistodo(i)">Delete</button>
+              </div> 
+              
             </div>
           </div>
     </ul>
 
+     
+      
 </div>
 
